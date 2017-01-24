@@ -1,0 +1,1228 @@
+0
+00:00:00,689 --> 00:00:07,689
+[music]
+
+1
+00:00:17,060 --> 00:00:19,830
+What&#39;s up everyone? Welcome to another episode of c0deporn
+
+2
+00:00:19,830 --> 00:00:22,840
+in this episode we&#39;re gonna learn the basics git
+
+3
+00:00:22,840 --> 00:00:26,650
+so that you can get your projects under source control and work with and contribute
+
+4
+00:00:26,650 --> 00:00:28,080
+to remote repositories
+
+5
+00:00:28,080 --> 00:00:33,340
+Git is not new by any means but most developers that I encounter have never heard of git
+
+6
+00:00:33,340 --> 00:00:37,780
+or have never used it. now, since I live in the Microsoft world most of the time
+
+7
+00:00:37,780 --> 00:00:41,750
+I hear a lot of complaints about TFS which is Microsoft&#39;s application life cycle
+
+8
+00:00:41,750 --> 00:00:42,930
+management suite
+
+9
+00:00:42,930 --> 00:00:47,570
+which also includes source control. I personally think TFS has a lot of good
+
+10
+00:00:47,570 --> 00:00:48,120
+offerings
+
+11
+00:00:48,120 --> 00:00:51,290
+including the source control; It&#39;s very developer friendly, team friendly
+
+12
+00:00:51,290 --> 00:00:55,690
+inside of the enterprise, but the outside of the enterprise, it can be a little overkill for
+
+13
+00:00:55,690 --> 00:00:56,930
+the individual developer
+
+14
+00:00:56,930 --> 00:01:01,049
+and for projects with multiple disparate contributors
+
+15
+00:01:01,049 --> 00:01:05,560
+when I ask these teams who use TFS, what would you rather use instead
+
+16
+00:01:05,560 --> 00:01:08,920
+I usually hear something like, &quot;well, subversion&quot; or SVN
+
+17
+00:01:08,920 --> 00:01:13,130
+as it&#39;s also known I personally hate SVN, but when I suggest
+
+18
+00:01:13,130 --> 00:01:16,470
+git I usally hear the same response, well
+
+19
+00:01:16,470 --> 00:01:20,100
+&quot;Git is too complicated, it&#39;s too hard to learn. I don&#39;t really understand it&quot;
+
+20
+00:01:20,100 --> 00:01:24,700
+it&#39;s obviously a response from someone who has never seen git in action because git
+
+21
+00:01:24,700 --> 00:01:29,399
+is actually very easy to use and learn and especially considering how powerful
+
+22
+00:01:29,399 --> 00:01:29,969
+it is
+
+23
+00:01:29,969 --> 00:01:34,140
+so, why don&#39;t I go ahead and show you what I&#39;m talking about and let&#39;s jump into the demo
+
+24
+00:01:34,140 --> 00:01:38,329
+so first thing is to install git. you can download the latest version of git
+
+25
+00:01:38,329 --> 00:01:42,950
+at git-scm.com. for this video I&#39;m using Windows
+
+26
+00:01:42,950 --> 00:01:46,149
+if you&#39;re on another setup, just work on getting git installed
+
+27
+00:01:46,149 --> 00:01:52,390
+the usage if git will be the same no matter what system you&#39;re on
+
+28
+00:01:52,390 --> 00:01:53,450
+during installation
+
+29
+00:01:53,450 --> 00:01:56,630
+I recommend the default settings here in this screen
+
+30
+00:01:56,630 --> 00:02:00,210
+as far as your path settings choose whatever you like but I usually go with
+
+31
+00:02:00,210 --> 00:02:02,850
+use git from git bash only
+
+32
+00:02:02,850 --> 00:02:05,690
+for line endings I recommend sticking with the first option
+
+33
+00:02:05,690 --> 00:02:10,270
+and let git convert line endings for you
+
+34
+00:02:10,270 --> 00:02:14,239
+once the install is done it&#39;s ready to use we&#39;re gonna start off with
+
+35
+00:02:14,239 --> 00:02:18,290
+local repositories and learn the basics before we jump into remote stuff
+
+36
+00:02:18,290 --> 00:02:21,730
+so open up the git shell by right clicking on a folder
+
+37
+00:02:21,730 --> 00:02:25,870
+and selecting git bash. notice the git GUI option
+
+38
+00:02:25,870 --> 00:02:28,880
+I won&#39;t go over it here, but you should check it out once you&#39;re familiar with
+
+39
+00:02:28,880 --> 00:02:30,760
+the basics
+
+40
+00:02:30,760 --> 00:02:33,990
+git bash is a command-line environment where you can type in the commands to
+
+41
+00:02:33,990 --> 00:02:34,780
+control git
+
+42
+00:02:34,780 --> 00:02:37,790
+our first command will be git init
+
+43
+00:02:37,790 --> 00:02:40,870
+which will initialize a repository in the current folder
+
+44
+00:02:40,870 --> 00:02:45,130
+you can initialize a repository on a new folder or an existing one
+
+45
+00:02:45,130 --> 00:02:48,739
+so if you already have a project you can go ahead and get it under source control
+
+46
+00:02:48,739 --> 00:02:52,160
+all the same as from starting from scratch
+
+47
+00:02:52,160 --> 00:02:55,750
+after the command finishes, you&#39;ll see a new hidden folder called .git
+
+48
+00:02:55,750 --> 00:03:00,810
+which is where git stores everything including change sets, branches and so on
+
+49
+00:03:00,810 --> 00:03:03,660
+at any time you can delete this folder to destroy the repository
+
+50
+00:03:03,660 --> 00:03:08,250
+of course you&#39;ll lose all your change history by doing so this also means that
+
+51
+00:03:08,250 --> 00:03:11,760
+even though you&#39;re working under change control, it isn&#39;t a backup
+
+52
+00:03:11,760 --> 00:03:15,890
+unlike TFS and SVN where you&#39;re most likely checking into a remote repository
+
+53
+00:03:15,890 --> 00:03:17,020
+somewhere
+
+54
+00:03:17,020 --> 00:03:20,320
+on some server; git uses a local file base set up
+
+55
+00:03:20,320 --> 00:03:23,670
+and you&#39;ll need a backup manually or commit to a remote repository
+
+56
+00:03:23,670 --> 00:03:28,020
+but this also means you can zip this folder and send out to anyone
+
+57
+00:03:28,020 --> 00:03:31,780
+and they can have immediate access to the repository as long as they have git
+
+58
+00:03:31,780 --> 00:03:34,040
+installed
+
+59
+00:03:34,040 --> 00:03:36,910
+at the moment we don&#39;t have anything to put under version control so let&#39;s
+
+60
+00:03:36,910 --> 00:03:39,170
+create a text file
+
+61
+00:03:39,170 --> 00:03:42,950
+now, even though the text file exists, it isn&#39;t being tracked by git yet
+
+62
+00:03:42,950 --> 00:03:47,980
+we can see this by using git status to see where we stand it any given time
+
+63
+00:03:47,980 --> 00:03:51,709
+git status is telling us our readme file is untracked
+
+64
+00:03:51,709 --> 00:03:56,989
+so let&#39;s fix that by typing git add readme.txt and pressing Enter
+
+65
+00:03:56,989 --> 00:04:00,159
+now when we use git status
+
+66
+00:04:00,159 --> 00:04:04,540
+we see that our readme file is ready to commit. this is called staging
+
+67
+00:04:04,540 --> 00:04:07,799
+we&#39;ve staged to readme file for commit
+
+68
+00:04:07,799 --> 00:04:11,689
+but what does it really mean? let&#39;s edit the readme file again and see what
+
+69
+00:04:11,689 --> 00:04:17,090
+happens
+
+70
+00:04:17,089 --> 00:04:20,010
+now we see that readme.txt is under both
+
+71
+00:04:20,010 --> 00:04:26,050
+tracked and untracked. but why? it&#39;s because when we staged a file using
+
+72
+00:04:26,050 --> 00:04:29,120
+the add command git staged the version of the file
+
+73
+00:04:29,120 --> 00:04:32,230
+as it was at that time which only had change one
+
+74
+00:04:32,230 --> 00:04:36,110
+so if we did a commit right now the commit would not include change two
+
+75
+00:04:36,110 --> 00:04:40,290
+we would need to use git add once more to stage the new changes
+
+76
+00:04:40,290 --> 00:04:44,600
+once we&#39;ve staged our changes
+
+77
+00:04:44,600 --> 00:04:48,340
+we&#39;re ready to commit them to the repository we can do this using
+
+78
+00:04:48,340 --> 00:04:51,360
+git commit when we run git commit
+
+79
+00:04:51,360 --> 00:04:54,700
+we&#39;ll end up in a vim like screen because git wants us to enter a
+
+80
+00:04:54,700 --> 00:04:55,610
+commit message
+
+81
+00:04:55,610 --> 00:04:59,030
+this can be a bit confusing at first but let&#39;s run through it and I&#39;ll show you a
+
+82
+00:04:59,030 --> 00:05:00,190
+shortcut after
+
+83
+00:05:00,190 --> 00:05:03,400
+to enter commit message in this vim screen, press I
+
+84
+00:05:03,400 --> 00:05:09,040
+which puts you into insert mode, and then start typing your commit message
+
+85
+00:05:09,040 --> 00:05:12,820
+all of this text here is what git has put in beforehand automatically
+
+86
+00:05:12,820 --> 00:05:16,330
+to tell you what is being committed just as a kind of reminder
+
+87
+00:05:16,330 --> 00:05:20,260
+notice that each line starts with a hash, this means those lines will be ignored
+
+88
+00:05:20,260 --> 00:05:23,120
+and won&#39;t end up in your actual commit message
+
+89
+00:05:23,120 --> 00:05:26,440
+once you have your text in there hit the Escape key
+
+90
+00:05:26,440 --> 00:05:30,110
+to exit insert mode and type :wq
+
+91
+00:05:30,110 --> 00:05:33,250
+in lower case which will rewrite the current file and
+
+92
+00:05:33,250 --> 00:05:38,270
+exit causing git to finish the commit. if we use git status once more
+
+93
+00:05:38,270 --> 00:05:41,440
+we see that there are no more pending changes which means they were all
+
+94
+00:05:41,440 --> 00:05:42,940
+committed to the repository
+
+95
+00:05:42,940 --> 00:05:46,520
+now, if you&#39;re not vim inclined like myself
+
+96
+00:05:46,520 --> 00:05:49,800
+then forget about the screen let&#39;s make another change
+
+97
+00:05:49,800 --> 00:05:52,690
+and trying to commit
+
+98
+00:05:52,690 --> 00:05:56,370
+this time will provide the -m switch which will allow us to provide a
+
+99
+00:05:56,370 --> 00:05:57,380
+commit message
+
+100
+00:05:57,380 --> 00:06:00,680
+right in the command line, so we&#39;ll type in git commit
+
+101
+00:06:00,680 --> 00:06:04,310
+-m and then &#39;change 3&#39; inside of quotes
+
+102
+00:06:04,310 --> 00:06:07,850
+now we don&#39;t have to bother with that vim screen if we just have a simple
+
+103
+00:06:07,850 --> 00:06:08,800
+commit message
+
+104
+00:06:08,800 --> 00:06:13,450
+at this point we have two commits in the repository
+
+105
+00:06:13,450 --> 00:06:17,570
+we can see the commit history using git log which will list out the commits
+
+106
+00:06:17,570 --> 00:06:21,150
+and their details like the author, date and commit notes
+
+107
+00:06:21,150 --> 00:06:24,570
+this will be very useful when you&#39;re working with other developers
+
+108
+00:06:24,570 --> 00:06:28,470
+let&#39;s add a new index.html to our project
+
+109
+00:06:28,470 --> 00:06:34,900
+ 
+
+110
+00:06:34,900 --> 00:06:36,500
+now let&#39;s make another change to our readme
+
+111
+00:06:36,500 --> 00:06:42,139
+file
+
+112
+00:06:42,139 --> 00:06:44,749
+using git status we see that we have changes
+
+113
+00:06:44,749 --> 00:06:50,199
+to the readme file and a new untracked file. we need to stage these files and changes
+
+114
+00:06:50,199 --> 00:06:53,509
+which we&#39;ll do using git add but this time instead of specifying
+
+115
+00:06:53,509 --> 00:06:57,889
+each file name, let&#39;s stage them all at once. we do this by using
+
+116
+00:06:57,889 --> 00:07:01,519
+git add, followed by a period, which tells git to stage
+
+117
+00:07:01,519 --> 00:07:05,699
+everything. additionally we can specify wild-card pattern like
+
+118
+00:07:05,699 --> 00:07:09,609
+*.html which will stage only files with HTML
+
+119
+00:07:09,609 --> 00:07:13,419
+extensions. this is much easier than doing every file one by one
+
+120
+00:07:13,419 --> 00:07:17,339
+but, there will be times when we don&#39;t want to include certain files in the
+
+121
+00:07:17,339 --> 00:07:18,209
+repository
+
+122
+00:07:18,209 --> 00:07:22,329
+for example if our application generates log files we may not want those
+
+123
+00:07:22,329 --> 00:07:23,839
+to be tracked in source control
+
+124
+00:07:23,839 --> 00:07:28,129
+and using a wild-card git add command would actually add those files
+
+125
+00:07:28,129 --> 00:07:35,129
+so let&#39;s simulate that by creating a new log file
+
+126
+00:07:39,130 --> 00:07:41,090
+git status shows the log file as
+
+127
+00:07:41,090 --> 00:07:45,480
+untracked. if we did a git add, the log file would be staged along with the other
+
+128
+00:07:45,480 --> 00:07:46,030
+changes
+
+129
+00:07:46,030 --> 00:07:50,400
+which isn&#39;t what we want to happen. we can tell git which files to exclude
+
+130
+00:07:50,400 --> 00:07:51,190
+by creating a
+
+131
+00:07:51,190 --> 00:07:55,720
+.gitignore file which we&#39;ll use to specify files and file patterns
+
+132
+00:07:55,720 --> 00:08:00,850
+for git to ignore. the problem with doing this on a Windows machine is a you must type
+
+133
+00:08:00,850 --> 00:08:01,950
+file name
+
+134
+00:08:01,950 --> 00:08:06,440
+when creating new files in Windows Explorer
+
+135
+00:08:06,440 --> 00:08:09,880
+so a shortcut to use is, inside of the git bash
+
+136
+00:08:09,880 --> 00:08:14,250
+touch .gitignore which will create the file for us
+
+137
+00:08:14,250 --> 00:08:19,270
+afterwards you can open it in an editor. in the editor
+
+138
+00:08:19,270 --> 00:08:25,130
+we&#39;ll add *.log and then save the file. now when we use git status our log file
+
+139
+00:08:25,130 --> 00:08:26,430
+doesn&#39;t show up any longer
+
+140
+00:08:26,430 --> 00:08:30,360
+however, our .gitignore file does so we need to stage
+
+141
+00:08:30,360 --> 00:08:36,960
+and then commit the ignore file
+
+142
+00:08:36,960 --> 00:08:40,260
+let&#39;s move on to branching and merging. branching is something almost all version
+
+143
+00:08:40,260 --> 00:08:41,350
+control systems have
+
+144
+00:08:41,350 --> 00:08:45,690
+it allows you to work on a copy of the code in the main line without actually
+
+145
+00:08:45,690 --> 00:08:47,260
+affecting the main line directly
+
+146
+00:08:47,260 --> 00:08:51,200
+for example you would create a new branch if you&#39;re working on a bugfix
+
+147
+00:08:51,200 --> 00:08:55,230
+or new feature. you&#39;re working in your own branch and everyone else can continue
+
+148
+00:08:55,230 --> 00:08:55,970
+their work
+
+149
+00:08:55,970 --> 00:08:59,680
+without being affected by what you&#39;re doing but you still have all the
+
+150
+00:08:59,680 --> 00:09:00,240
+benefits
+
+151
+00:09:00,240 --> 00:09:03,760
+of source control. when you&#39;re done you would merge your changes
+
+152
+00:09:03,760 --> 00:09:08,300
+back into the main line. branching in git is ridiculously easy
+
+153
+00:09:08,300 --> 00:09:12,930
+we can create a new branch using git branch and then giving the name of your
+
+154
+00:09:12,930 --> 00:09:13,740
+new branch
+
+155
+00:09:13,740 --> 00:09:18,320
+new branch is created and we can switch to it just as easily
+
+156
+00:09:18,320 --> 00:09:21,540
+using git checkout followed by the branch name
+
+157
+00:09:21,540 --> 00:09:25,740
+everything at this point will look exactly the same, but let&#39;s make two changes
+
+158
+00:09:25,740 --> 00:09:29,020
+add a new file to the project and change
+
+159
+00:09:29,020 --> 00:09:35,010
+our readme file
+
+160
+00:09:35,010 --> 00:09:36,750
+then we&#39;ll stage and commit the changes
+
+161
+00:09:36,750 --> 00:09:42,820
+ 
+
+162
+00:09:42,820 --> 00:09:46,210
+to switch back to the main branch we&#39;ll use git checkout master
+
+163
+00:09:46,210 --> 00:09:51,660
+master is always the name of the main branch
+
+164
+00:09:51,660 --> 00:09:52,290
+when we switch
+
+165
+00:09:52,290 --> 00:09:57,230
+back, take a look at the folder. we&#39;re missing our newly added CSS file
+
+166
+00:09:57,230 --> 00:10:01,170
+and our readme is missing change 5. that&#39;s because the master branch doesn&#39;t
+
+167
+00:10:01,170 --> 00:10:05,170
+have the changes we made in our other branch
+
+168
+00:10:05,170 --> 00:10:06,000
+since we&#39;re done with our
+
+169
+00:10:06,000 --> 00:10:10,230
+changes in the other branch, why don&#39;t we go ahead and merge them back into the master.
+
+170
+00:10:10,230 --> 00:10:14,080
+before we merge we need to make sure that we&#39;re on the destination branch
+
+171
+00:10:14,080 --> 00:10:17,260
+in this case, master is the destination and our new branch
+
+172
+00:10:17,260 --> 00:10:21,740
+is the source. so use git status to see which branch we&#39;re currently in
+
+173
+00:10:21,740 --> 00:10:25,160
+and use git checkout master to switch to the master branch if you&#39;re not already
+
+174
+00:10:25,160 --> 00:10:26,820
+there
+
+175
+00:10:26,820 --> 00:10:29,910
+then all we have to do to merge is use git merge
+
+176
+00:10:29,910 --> 00:10:35,310
+and then the name of the source branch. now we see our newly added CSS file in the
+
+177
+00:10:35,310 --> 00:10:36,200
+project folder
+
+178
+00:10:36,200 --> 00:10:39,580
+and the readme should now have change 5
+
+179
+00:10:39,580 --> 00:10:43,070
+now, while that marge was pretty smooth, most likely you&#39;re going to run into merge
+
+180
+00:10:43,070 --> 00:10:43,900
+conflicts
+
+181
+00:10:43,900 --> 00:10:47,480
+and this is the part that everybody hates. so let&#39;s cause a conflict by adding
+
+182
+00:10:47,480 --> 00:10:48,460
+change 6
+
+183
+00:10:48,460 --> 00:10:52,140
+to our readme and then committing the changes
+
+184
+00:10:52,140 --> 00:10:54,670
+but i&#39;m going to show you a shortcut when using
+
+185
+00:10:54,670 --> 00:10:57,950
+-a in the commit command you can skip the staging step
+
+186
+00:10:57,950 --> 00:11:02,300
+any changes to files that are currently tracked will be automatically staged
+
+187
+00:11:02,300 --> 00:11:05,330
+however any new files that are untracked
+
+188
+00:11:05,330 --> 00:11:10,430
+won&#39;t be staged and they&#39;ll have to be added manually using git add
+
+189
+00:11:10,430 --> 00:11:17,250
+then we&#39;ll switch back over to our other branch
+
+190
+00:11:17,250 --> 00:11:18,620
+and add change 7 to the
+
+191
+00:11:18,620 --> 00:11:25,620
+read me and commit those changes
+
+192
+00:11:27,680 --> 00:11:29,810
+this time let&#39;s merge master into our new
+
+193
+00:11:29,810 --> 00:11:34,750
+branch
+
+194
+00:11:34,750 --> 00:11:36,290
+when we do that we see that there is
+
+195
+00:11:36,290 --> 00:11:40,070
+now merge conflict. we can also see this using git status
+
+196
+00:11:40,070 --> 00:11:43,600
+git was enabled to automatically to perform a merge
+
+197
+00:11:43,600 --> 00:11:46,759
+and now it&#39;s up to us to take care of it and resolve the conflict
+
+198
+00:11:46,759 --> 00:11:50,339
+examining the readme file we see some additional text
+
+199
+00:11:50,339 --> 00:11:53,420
+git has put information about the conflict directly in our file
+
+200
+00:11:53,420 --> 00:11:57,860
+the top part is the head which means the version in the current branch
+
+201
+00:11:57,860 --> 00:12:01,509
+the bottom part is the version of the source branch in this case
+
+202
+00:12:01,509 --> 00:12:03,429
+the master branch
+
+203
+00:12:03,429 --> 00:12:07,709
+we can easily see what we need to do to fix this so let&#39;s adjust the file
+
+204
+00:12:07,709 --> 00:12:14,190
+and then remove the markers that git added
+
+205
+00:12:14,190 --> 00:12:15,230
+once we resolved all the
+
+206
+00:12:15,230 --> 00:12:18,880
+conflicts we need to run to git add to mark these files as resolved
+
+207
+00:12:18,880 --> 00:12:21,280
+and then we commit them
+
+208
+00:12:21,280 --> 00:12:25,110
+you can imagine how incredibly complex this process will get in an actual project
+
+209
+00:12:25,110 --> 00:12:29,290
+don&#39;t worry there are better ways once you get a merge conflict you can use
+
+210
+00:12:29,290 --> 00:12:34,530
+git mergetool to launch a tool to help make fixing merge conflicts a lot easier
+
+211
+00:12:34,530 --> 00:12:38,090
+however at this point I don&#39;t have any installed or configured on
+
+212
+00:12:38,090 --> 00:12:41,770
+my machine. I highly recommend getting a merge tool like
+
+213
+00:12:41,770 --> 00:12:46,240
+tortisemerge or my personal favorite winmerge, and configure git to use it
+
+214
+00:12:46,240 --> 00:12:49,460
+so you don&#39;t have to try and tackle merges manually
+
+215
+00:12:49,460 --> 00:12:53,110
+there is plenty of documentation on configuring git for merge tools so I&#39;m not going to
+
+216
+00:12:53,110 --> 00:12:54,970
+cover it here
+
+217
+00:12:54,970 --> 00:12:58,210
+now that we&#39;ve talked about branching I wanna show you a nice feature called
+
+218
+00:12:58,210 --> 00:13:00,489
+stash
+
+219
+00:13:00,489 --> 00:13:04,449
+let&#39;s say we&#39;re in our current branch and we had a file you recall what
+
+220
+00:13:04,449 --> 00:13:06,979
+happened previously when we had a file to one branch
+
+221
+00:13:06,979 --> 00:13:10,819
+it disappeared when we switch to the other branch. but what happens if we&#39;re in a
+
+222
+00:13:10,819 --> 00:13:11,389
+branch
+
+223
+00:13:11,389 --> 00:13:14,869
+and we make changes but don&#39;t commit them? in this case
+
+224
+00:13:14,869 --> 00:13:18,269
+the changes remain when we switch branches as you might have guessed
+
+225
+00:13:18,269 --> 00:13:20,670
+this could be a big problem some point
+
+226
+00:13:20,670 --> 00:13:23,920
+let&#39;s say you&#39;re working on a branch and you&#39;ve made a ton of changes and you&#39;re not
+
+227
+00:13:23,920 --> 00:13:26,829
+ready to commit them yet. but you need to switch to another branch to do a quick
+
+228
+00:13:26,829 --> 00:13:27,730
+bugfix or
+
+229
+00:13:27,730 --> 00:13:31,459
+work on something else. as we just saw your changes will persist
+
+230
+00:13:31,459 --> 00:13:35,069
+during the branch change which is going to be an issue so what the stash
+
+231
+00:13:35,069 --> 00:13:35,879
+command does
+
+232
+00:13:35,879 --> 00:13:39,889
+is take that dirty state of your branch including tracked modifications
+
+233
+00:13:39,889 --> 00:13:44,259
+and staged changes and saves it on a stack of unfinished changes that can be
+
+234
+00:13:44,259 --> 00:13:46,660
+reapplied at any time
+
+235
+00:13:46,660 --> 00:13:49,950
+so before we switch branches let&#39;s do it git status
+
+236
+00:13:49,950 --> 00:13:52,760
+to see that we do have changes pending
+
+237
+00:13:52,760 --> 00:13:56,700
+because we had a new file it isn&#39;t being tracked yet so it won&#39;t be included in the
+
+238
+00:13:56,700 --> 00:13:57,360
+stash
+
+239
+00:13:57,360 --> 00:14:02,310
+so we&#39;ll just use git add to start tracking it
+
+240
+00:14:02,310 --> 00:14:06,540
+now let&#39;s stash the changes using git stash
+
+241
+00:14:06,540 --> 00:14:09,480
+using git status shows us there&#39;s no more pending changes
+
+242
+00:14:09,480 --> 00:14:13,679
+when you&#39;re ready to come back and continue your work on this branch
+
+243
+00:14:13,679 --> 00:14:16,720
+you can reapply your changes from the stash using
+
+244
+00:14:16,720 --> 00:14:22,110
+git stash apply. now you&#39;re ready to continue on
+
+245
+00:14:22,110 --> 00:14:25,830
+okay you pretty much know the basics now so let&#39;s look at working with remote
+
+246
+00:14:25,830 --> 00:14:27,500
+repositories
+
+247
+00:14:27,500 --> 00:14:31,650
+the terms used can be a little confusing so I&#39;ll explain them and the differences as
+
+248
+00:14:31,650 --> 00:14:32,260
+we go
+
+249
+00:14:32,260 --> 00:14:35,800
+first off keep in mind that even though you&#39;re interacting with the remote
+
+250
+00:14:35,800 --> 00:14:38,750
+repository everything is still happening locally
+
+251
+00:14:38,750 --> 00:14:44,889
+you have to manually retrieve and push changes to the remote repository
+
+252
+00:14:44,889 --> 00:14:47,750
+we can see a list of existing remote repositories we have
+
+253
+00:14:47,750 --> 00:14:51,170
+using git remote at the moment we don&#39;t have any listed.
+
+254
+00:14:51,170 --> 00:14:54,290
+it&#39;s important to note that any remote repositories we add
+
+255
+00:14:54,290 --> 00:14:58,279
+will only apply to our current local repository and I&#39;ll show you what I mean
+
+256
+00:14:58,279 --> 00:15:02,769
+in just a bit let&#39;s go find a repository on github. I&#39;ll use a repo I created from a
+
+257
+00:15:02,769 --> 00:15:04,250
+.NET project called
+
+258
+00:15:04,250 --> 00:15:08,220
+fluent guard. first we need to get the clone URL which github provides
+
+259
+00:15:08,220 --> 00:15:12,780
+us
+
+260
+00:15:12,780 --> 00:15:13,769
+back in the git shell
+
+261
+00:15:13,769 --> 00:15:16,790
+we&#39;re going to clone the fluent guard repository using
+
+262
+00:15:16,790 --> 00:15:21,380
+git clone and providing the URL for the repository
+
+263
+00:15:21,380 --> 00:15:24,240
+when that&#39;s done you&#39;ll notice a new folder called fluent guard in our project
+
+264
+00:15:24,240 --> 00:15:24,940
+folder
+
+265
+00:15:24,940 --> 00:15:28,750
+cloning a repo does exactly what it implies it pulls down the entire
+
+266
+00:15:28,750 --> 00:15:30,480
+repository including the
+
+267
+00:15:30,480 --> 00:15:36,260
+entire commit history and as such, git puts everything in its own folder
+
+268
+00:15:36,260 --> 00:15:40,110
+if we use git remote right now we&#39;ll see nothing just like before
+
+269
+00:15:40,110 --> 00:15:44,000
+but let&#39;s switch over to the fluent guard folder, and use git remote
+
+270
+00:15:44,000 --> 00:15:47,020
+once more. now we see an entry for origin
+
+271
+00:15:47,020 --> 00:15:50,260
+let&#39;s use git remote with a -v
+
+272
+00:15:50,260 --> 00:15:54,120
+argument to have git show us the URLs. origin is the default
+
+273
+00:15:54,120 --> 00:15:57,890
+alias for the repo that was cloned you&#39;ll use this alias when issuing git
+
+274
+00:15:57,890 --> 00:16:00,819
+commands instead of the URL
+
+275
+00:16:00,819 --> 00:16:04,489
+now that we have the repository we can start working with it. as time goes by
+
+276
+00:16:04,489 --> 00:16:08,069
+we need to keep it up-to-date and there are two ways of doing that by fetching
+
+277
+00:16:08,069 --> 00:16:09,870
+and by pulling
+
+278
+00:16:09,870 --> 00:16:13,920
+git fetch origin will go out to the server and get any changes made since
+
+279
+00:16:13,920 --> 00:16:16,640
+you last cloned or fetched
+
+280
+00:16:16,640 --> 00:16:20,600
+fetching will pull the data into your local repository but will not merge it into
+
+281
+00:16:20,600 --> 00:16:21,190
+your work
+
+282
+00:16:21,190 --> 00:16:23,550
+you&#39;ll need to merge manually
+
+283
+00:16:23,550 --> 00:16:26,340
+using git pull origin will automatically fetch
+
+284
+00:16:26,340 --> 00:16:33,340
+and merge the changes from the remote branch into your current branch
+
+285
+00:16:34,929 --> 00:16:39,310
+when you&#39;re ready to submit your changes, commit your work
+
+286
+00:16:39,310 --> 00:16:44,110
+and then use get push origin master. we&#39;re telling git here to push ourchanges
+
+287
+00:16:44,110 --> 00:16:47,110
+to the remote repository known to us as origin
+
+288
+00:16:47,110 --> 00:16:51,180
+and commit them to the master branch at that point you&#39;ll be prompted for
+
+289
+00:16:51,180 --> 00:16:52,130
+credentials
+
+290
+00:16:52,130 --> 00:16:55,900
+and I&#39;m gonna put in some fake credentials here so it&#39;s gonna fail
+
+291
+00:16:55,900 --> 00:16:59,880
+now at this point any changes that you&#39;ve made will be committed to the remote
+
+292
+00:16:59,880 --> 00:17:00,810
+repository
+
+293
+00:17:00,810 --> 00:17:04,240
+to add addition remote repositories use
+
+294
+00:17:04,240 --> 00:17:08,490
+git remote add followed by the name you want to give the remote repo,
+
+295
+00:17:08,490 --> 00:17:15,490
+or the alias, and then the URL
+
+296
+00:17:16,560 --> 00:17:17,860
+and just like before, use the name
+
+297
+00:17:17,859 --> 00:17:22,780
+just like we did with origin from the cloned repo. there&#39;s quite a bit that I haven&#39;t
+
+298
+00:17:22,780 --> 00:17:23,390
+covered
+
+299
+00:17:23,390 --> 00:17:26,890
+but what we did cover is enough to get you up and running quickly
+
+300
+00:17:26,890 --> 00:17:30,050
+check out the git documentation and also have a look at pro
+
+301
+00:17:30,050 --> 00:17:33,500
+git which is now available as a free ebook and I&#39;ll put a link
+
+302
+00:17:33,500 --> 00:17:36,960
+down in the description. alright that&#39;s it for this episode
+
+303
+00:17:36,960 --> 00:17:41,740
+be sure to subscribe to our channel: and check out previous and future episodes
+
+304
+00:17:41,740 --> 00:17:44,870
+you have a request for an episode or you wanna be a guest on an episode
+
+305
+00:17:44,870 --> 00:17:47,900
+send me e-mail at c0deporn.show@gmail.com
+
+306
+00:17:47,900 --> 00:17:50,240
+c0deporn.show@gmail.com. thanks for watching!
+
